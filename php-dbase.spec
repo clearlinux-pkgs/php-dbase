@@ -4,7 +4,7 @@
 #
 Name     : php-dbase
 Version  : 7.0.1
-Release  : 3
+Release  : 4
 URL      : https://pecl.php.net/get/dbase-7.0.1.tgz
 Source0  : https://pecl.php.net/get/dbase-7.0.1.tgz
 Summary  : No detailed summary available
@@ -27,6 +27,7 @@ lib components for the php-dbase package.
 
 %prep
 %setup -q -n dbase-7.0.1
+cd %{_builddir}/dbase-7.0.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
@@ -45,4 +46,4 @@ make  %{?_smp_mflags}
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/extensions/no-debug-non-zts-20180731/dbase.so
+/usr/lib64/extensions/no-debug-non-zts-20190902/dbase.so
