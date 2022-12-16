@@ -4,13 +4,14 @@
 #
 Name     : php-dbase
 Version  : 7.1.1
-Release  : 32
+Release  : 33
 URL      : https://pecl.php.net/get/dbase-7.1.1.tgz
 Source0  : https://pecl.php.net/get/dbase-7.1.1.tgz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : PHP-3.01
 Requires: php-dbase-lib = %{version}-%{release}
+Requires: php-dbase-license = %{version}-%{release}
 BuildRequires : buildreq-php
 
 %description
@@ -19,9 +20,18 @@ No detailed description available
 %package lib
 Summary: lib components for the php-dbase package.
 Group: Libraries
+Requires: php-dbase-license = %{version}-%{release}
 
 %description lib
 lib components for the php-dbase package.
+
+
+%package license
+Summary: license components for the php-dbase package.
+Group: Default
+
+%description license
+license components for the php-dbase package.
 
 
 %prep
@@ -37,6 +47,8 @@ phpize
 make  %{?_smp_mflags}
 
 %install
+mkdir -p %{buildroot}/usr/share/package-licenses/php-dbase
+cp %{_builddir}/dbase-%{version}/LICENSE %{buildroot}/usr/share/package-licenses/php-dbase/23cb6fa873d559515b754db54720962118c95899
 %make_install
 
 
@@ -45,4 +57,8 @@ make  %{?_smp_mflags}
 
 %files lib
 %defattr(-,root,root,-)
-/usr/lib64/extensions/no-debug-non-zts-20210902/dbase.so
+/usr/lib64/extensions/no-debug-non-zts-20220829/dbase.so
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/php-dbase/23cb6fa873d559515b754db54720962118c95899
