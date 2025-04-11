@@ -7,7 +7,7 @@
 #
 Name     : php-dbase
 Version  : 7.1.1
-Release  : 79
+Release  : 80
 URL      : https://pecl.php.net/get/dbase-7.1.1.tgz
 Source0  : https://pecl.php.net/get/dbase-7.1.1.tgz
 Summary  : No detailed summary available
